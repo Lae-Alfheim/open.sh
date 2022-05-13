@@ -25,8 +25,8 @@ add this little alias to your bashrc
 
 Also probably put the script in newsboat config file
 
-Dependencys
------------
+Needed Dependencys
+------------------
 
 - [Kitty](https://sw.kovidgoyal.net/kitty/)
 - [Proxychains](https://github.com/haad/proxychains) or
@@ -36,7 +36,8 @@ Dependencys
 - [tor-browser]()
 - [mpv]()
 
-# Optional
+Optional Dependencys
+--------------------
 
 _most of the above I want to be down here_
 

@@ -13,7 +13,8 @@ I recommend that you should
 add this little alias to your bashrc
         
         alias nb="/$HOME/.config/newsboat/open.sh"
-        
+
+Also probably put the script in newsboat config file
 
 Dependencys
 -----------
@@ -22,6 +23,12 @@ Dependencys
 - [Proxychains](https://github.com/haad/proxychains) or [Proxychains-ng](https://github.com/rofl0r/proxychains-ng)
 - [xdotool](https://github.com/jordansissel/xdotool)
 - [openbsd-netcat](https://salsa.debian.org/debian/netcat-openbsd)
+- [tor-browser]()
+- [mpv]()
+
+# Optional
+
+_most of the above I want to be down here_
 
 Todo
 ====
@@ -30,6 +37,7 @@ Todo
 - Detect if missing any required or wanted packages
 - add support for other browser like firefox, librewolf, brave, lynx, links, etc... 
 Including detecting witch is installed
+- add support for other media viewer vlc, (idk), etc...
 - proxychains better support and easy off switch
 - add config in config for newsboat, and commited out
 - add availablity for both gnu and openbsd netcat

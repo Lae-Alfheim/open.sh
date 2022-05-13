@@ -1,5 +1,14 @@
-___OPEN.SH___
-=============
+<pre>
+ ██████╗ ██████╗ ███████╗███╗   ██╗   ███████╗██╗  ██╗ 
+██╔═══██╗██╔══██╗██╔════╝████╗  ██║   ██╔════╝██║  ██║
+██║   ██║██████╔╝█████╗  ██╔██╗ ██║   ███████╗███████║
+██║   ██║██╔═══╝ ██╔══╝  ██║╚██╗██║   ╚════██║██╔══██
+╚██████╔╝██║     ███████╗██║ ╚████║██╗███████║██║  ██║
+ ╚═════╝ ╚═╝     ╚══════╝╚═╝  ╚═══╝╚═╝╚══════╝╚═╝  ╚═╝
+</pre>
+
+__OPEN.SH__
+===========
 
 __An addon script for newsboat, with cross computer url sharing.__
 
@@ -20,7 +29,8 @@ Dependencys
 -----------
 
 - [Kitty](https://sw.kovidgoyal.net/kitty/)
-- [Proxychains](https://github.com/haad/proxychains) or [Proxychains-ng](https://github.com/rofl0r/proxychains-ng)
+- [Proxychains](https://github.com/haad/proxychains) or
+[Proxychains-ng](https://github.com/rofl0r/proxychains-ng)
 - [xdotool](https://github.com/jordansissel/xdotool)
 - [openbsd-netcat](https://salsa.debian.org/debian/netcat-openbsd)
 - [tor-browser]()

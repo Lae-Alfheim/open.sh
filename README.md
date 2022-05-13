@@ -53,3 +53,4 @@ Including detecting witch is installed
 - add config in config for newsboat, and commited out
 - add availablity for both gnu and openbsd netcat
 - add compatability for wayland
+- kitty computer controler -- volume

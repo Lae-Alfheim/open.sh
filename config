@@ -1,0 +1,21 @@
+browser "$HOME/.config/newsboat/open.sh"
+max-items 1000 # limit articles to 100
+error-log "~/.config/newsboat/error.log"
+
+# -- Feeds ------------
+auto-reload yes
+reload-time 120
+reload-threads 4
+download-retries 4
+download-timeout 10
+prepopulate-query-feeds yes
+# Colors --------------
+color background color7 default
+color info color7 color0 dim
+color listnormal color7 default dim
+color listfocus color3 default
+color listnormal_unread color7 default
+color listfocus_unread color1 default
+# -- Tor --------------
+download-retries 10
+download-timeout 60

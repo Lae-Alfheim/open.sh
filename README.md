@@ -10,7 +10,8 @@
 __OPEN.SH__
 ===========
 
-__An addon script for newsboat, with cross computer url sharing.__
+__An addon script for newsboat, with cross computer url sharing.
+That proxys through Tor.__
 
 _Please help, I no spell good_
 
@@ -44,6 +45,7 @@ _most of the above I want to be down here_
 Todo
 ====
 
+- Option to change proxy port and ip
 - Option to stop proxychains
 - Detect if missing any required or wanted packages
 - add support for other browser like firefox, librewolf, brave, lynx, links, etc... 

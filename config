@@ -21,6 +21,7 @@ color listfocus color3 default
 color listnormal_unread color7 default
 color listfocus_unread color1 default
 # -- Tor --------------
+## For tor to get all feeds populated
 download-retries 10
 download-timeout 60
 
@@ -28,7 +29,8 @@ download-timeout 60
 # !!EXAMPLE NO IMPLEMENTED!!
 #
 # TOR=TRUE
-# PORT=638
+# PORT=2999
 # IP=192.10.24
+# IP2=
 # LOG=TRUE
 #

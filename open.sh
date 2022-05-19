@@ -6,8 +6,8 @@ if pidof newsboat; then
         printf "\nNewsboat Is Found\n"
         if [[ $(cat /tmp/newsboat-config) == *Mac=yes* ]]; then
                 echo "Mac is the Yes"
-                ip=192.168.0.18 #33
-#                ip=192.168.1.244
+                ip=192.168.0.18
+#               ip=192.168.1.244
                 port=2999
                 echo $url | nc $ip $port -q 1
                 exit 

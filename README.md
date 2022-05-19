@@ -46,7 +46,7 @@ _most of the above I want to be down here_
 Todo
 ====
 
-- Options, commited outt, in newsboat config
+- Options, commited out, in newsboat config
     * Option to change proxy port and ip
     * Option to stop proxychains
     * Option to change default browser
@@ -61,6 +61,15 @@ Todo
     * media viewer vlc, (idk), etc...
     * add availablity for both gnu and openbsd netcat
     * wayland
+    * Multapal ip and ip selection
+    * some encryption for transmission of urls _ssh?_
+    * support for IPv6
+- ~~add a main window, for better control~~
+- revamp server.sh for multipal windows
+- transmit settings for server.sh
+- auto update settings for server.sh, 
+store them in main computers config
+- add superior window management for bspwm 
 - proxychains better support and easy off switch
 - kitty computer controler -- volume
 - possibly complile this _needed feed back_

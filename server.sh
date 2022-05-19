@@ -3,21 +3,18 @@
 # Show current devices ip address
 ip address show | grep "scope global dynamic wlan0"
 
-# Check for xdotool program
+# Check for xdotool program is installed and usable
 if [[ $(xdotool > /dev/null 2>&1) == 1 ]]; then; tool=1
 else; tool=0; fi
 
 while true; do
-        if [[ $input == "q" ]]; then
-                break; fi
-        
-        # listen on port 2999
+        if [[ $input == "q" ]]; then break; fi # press q, stop
+        # listening on port 2999
         nc -l 2999 -C > /tmp/newsboat-urls
-        echo seen
+        echo seen # got a ping
         url=$(cat /tmp/newsboat-urls)
-        
         # Opening URL
-        # Check if we should use mpv
+        ## Check if we should use mpv
         if [[ $url == *odysee.com/* || $url == *youtube.com/* || $url == *surveillance-report.castos.com/episodes/* ]]; then
                 if [[ $url == *surveillance-report.castos.com/episodes/* ]]; then
                         proxy=False

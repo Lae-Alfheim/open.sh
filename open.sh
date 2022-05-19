@@ -1,15 +1,7 @@
-#! /usr/bin/env bash
-
-# TODO Detect for needed tools Instead of all being
-# in individual steps, although have some alternatives
-# xdotool, tor-browser, kitty, and mpv are not needed but definitly recommended
-#
-# needed ::
-# newsboat, basic tools
+#! /bin/bash
 
 
 url=$1
-echo $Mac
 
 if pidof newsboat; then
         printf "\nNewsboat Is Found\n"
@@ -63,7 +55,7 @@ else
         fi
         printf " ██████╗ ██████╗ ███████╗███╗   ██╗   ███████╗██╗  ██╗\n██╔═══██╗██╔══██╗██╔════╝████╗  ██║   ██╔════╝██║  ██║\n██║   ██║██████╔╝█████╗  ██╔██╗ ██║   ███████╗███████║\n██║   ██║██╔═══╝ ██╔══╝  ██║╚██╗██║   ╚════██║██╔══██║\n╚██████╔╝██║     ███████╗██║ ╚████║██╗███████║██║  ██║\n ╚═════╝ ╚═╝     ╚══════╝╚═╝  ╚═══╝╚═╝╚══════╝╚═╝  ╚═╝\n"
         printf "starting ...\n"
-        proxychains -q newsboat
+        kitty --detach proxychains -q newsboat
         while read -n 1 feed
         do
                 case $feed in  # TODO add more options
@@ -71,6 +63,19 @@ else
                         printf "\nGoodbye\n"
                         break
                         ;;
+                "o" | "O")
+                        printf "Openining: "
+                        while read -n 1 feed
+                        do
+                                case $feed in
+                                "l" | "L")
+                                        kitty --detach nvim $HOME/dox/NOTES/log.md
+                                        break
+                                *)
+                                        break
+                                        ;;
+                                esac
+                        done
                 "m" | "M")      # Go to Mac toggle
                         case $(cat /tmp/newsboat-config 2> /dev/null) in
                         *Mac=yes*)
@@ -130,15 +135,15 @@ else
                 # TODO detect for kitty
                 # TODO select back nb window after launch using xdotool
                 # TODO detect for xdotool
-                                printf "\n\nOpenining LOG\n"
-                                while /bin/true; do
-                                        if [[ $(cat /tmp/newsboat-config) == *Log=no* ]]; then
-                                                break
-                                        fi
-                                        echo hi
-                                        notify-send "$(date "+%Y-%m-%d")" "$(echo ""; cat $HOME/dox/NOTES/log.md | grep $(date "+%Y-%m-%d") -A9999999999 | grep -v ~~ | grep __Extra -B99 | grep __Extra -v | grep -v '^[[:space:]]*$' | grep -v $(date "+%Y-%m-%d") )"
-                                        sleep 15m
-                                done &
+#                               printf "\n\nOpenining LOG\n"
+#                               while /bin/true; do
+#                                       if [[ $(cat /tmp/newsboat-config) == *Log=no* ]]; then
+#                                               break
+#                                       fi
+#                                       echo hi
+#                                       notify-send "$(date "+%Y-%m-%d")" "$(echo ""; cat $HOME/dox/NOTES/log.md | grep $(date "+%Y-%m-%d") -A9999999999 | grep -v ~~ | grep __Extra -B99 | grep __Extra -v | grep -v '^[[:space:]]*$' | grep -v $(date "+%Y-%m-%d") )"
+#                                       sleep 15m
+#                               done &
                                 kitty --detach nvim $HOME/dox/NOTES/log.md
                                 config="Log=yes\n$(cat /tmp/newsboat-config | grep -v 'Log=no' | grep -v 'Log=yes' | grep -v '^$')"
                                 printf "\n"
@@ -155,7 +160,7 @@ else
                         #kitty --detach parallel -u ::: '' 'sh; while true; do sleep 15s; notify-send -w -a LOG Log; done'
                         ;;
                 *)              # Open Newsboat
-                        proxychains -q newsboat
+                        kitty --detach proxychains -q newsboat
                         ;;
                 esac
         done

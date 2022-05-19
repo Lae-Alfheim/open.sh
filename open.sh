@@ -1,7 +1,6 @@
 #! /bin/bash
 
-
-url=$1
+url=$1 # Sets input to be value url
 
 if pidof newsboat; then
         printf "\nNewsboat Is Found\n"
@@ -22,10 +21,6 @@ if pidof newsboat; then
                         mpv $url
                         exit
                 else
-#                       xdotool search --name 'Tor Browser' windowactivate click 1
-#                       sleep 1s
-#                       bspc node -d 1
-#                       bspc desktop -f 1
                         xdotool search --name 'Tor Browser' windowactivate click 1
                         xdotool key --clearmodifiers ctrl+t  # open a new tab in Tor Browser
                         xdotool type $url  # type the URL in the search bar
@@ -39,7 +34,7 @@ else
                 # TODO select back nb window after launch using xdotool
                 # TODO detect for xdotool
                 printf "\n\nOpenining LOG\n"
- #              while /bin/true; do
+ #              while /bin/true; do  # notification for log
  #                      if [[ $(cat /tmp/newsboat-config) == *Log=no* ]]; then
  #                              break
  #                      fi

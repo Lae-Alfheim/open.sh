@@ -34,8 +34,8 @@ Needed Dependencys
 [Proxychains-ng](https://github.com/rofl0r/proxychains-ng)
 - [xdotool](https://github.com/jordansissel/xdotool)
 - [openbsd-netcat](https://salsa.debian.org/debian/netcat-openbsd)
-- [tor-browser]()
-- [mpv]()
+- [tor-browser](https://www.torproject.org/)
+- [mpv](https://mpv.io/)
 
 Optional Dependencys
 --------------------
@@ -45,14 +45,19 @@ _most of the above I want to be down here_
 Todo
 ====
 
-- Option to change proxy port and ip
-- Option to stop proxychains
+- Options, commited outt, in newsboat config
+    * Option to change proxy port and ip
+    * Option to stop proxychains
+    * Option to change default browser
+    * Option to turn off new window
+    * Option to change default media viewer
 - Detect if missing any required or wanted packages
 - add support for other browser like firefox, librewolf, brave, lynx, links, etc... 
 Including detecting witch is installed
 - add support for other media viewer vlc, (idk), etc...
 - proxychains better support and easy off switch
-- add config in config for newsboat, and commited out
 - add availablity for both gnu and openbsd netcat
 - add compatability for wayland
 - kitty computer controler -- volume
+- possibly complile this _needed feed back_
+- make custom newsboat version to include this

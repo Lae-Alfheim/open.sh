@@ -31,6 +31,8 @@ download-timeout 60
 # TOR=TRUE
 # PORT=2999
 # IP=192.10.24
-# IP2=
+# IP2=192.0.10
 # LOG=TRUE
+# VIDEO=FALSE ## video goes to second computer
+# URL=TRUE ## url without video stays on host computer
 #

@@ -64,8 +64,10 @@ Todo
     * Multapal ip and ip selection
     * some encryption for transmission of urls _ssh?_
     * support for IPv6
+    * loging in gnome, bash, startx, ETC
 - ~~add a main window, for better control~~
 - revamp server.sh for multipal windows
+- find a way to use other terminals, st, alacritty, ETC
 - transmit settings for server.sh to a /tmp folder
 - option to start and login through ftp
 - update option in open.sh window

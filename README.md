@@ -52,6 +52,8 @@ Todo
     * Option to turn off new window
     * Option to change default media viewer
 - Detect if missing any required or wanted packages
+    - Warn user
+    - Try not to use the one not installed
 - add support for other browser like firefox, librewolf, brave, lynx, links, etc... 
 Including detecting witch is installed
 - add support for other media viewer vlc, (idk), etc...
@@ -60,4 +62,12 @@ Including detecting witch is installed
 - add compatability for wayland
 - kitty computer controler -- volume
 - possibly complile this _needed feed back_
-- make custom newsboat version to include this
+- make custom newsboat version to include this'
+
+
+# Contribution Guidelines
+
+* Search previous suggestions and issues before making a new one, as yours could be a duplicate.
+* Make an individual pull request for each suggestion.
+* New code, or code improvements to the existing code is welcome.
+* Try to check your spelling and grammar, and dont hesitate to fix mine.

@@ -36,6 +36,7 @@ Needed Dependencys
 - [openbsd-netcat](https://salsa.debian.org/debian/netcat-openbsd)
 - [tor-browser](https://www.torproject.org/)
 - [mpv](https://mpv.io/)
+- [nvim](https://neovim.io/) _for log function_
 
 Optional Dependencys
 --------------------
@@ -54,15 +55,16 @@ Todo
 - Detect if missing any required or wanted packages
     - Warn user
     - Try not to use the one not installed
-- add support for other browser like firefox, librewolf, brave, lynx, links, etc... 
-Including detecting witch is installed
-- add support for other media viewer vlc, (idk), etc...
+- add support
+    * other browser like firefox, librewolf, brave, lynx, links, etc... Including detecting witch is installed
+    * "log" text editors, vim, vi, ed, ETC
+    * media viewer vlc, (idk), etc...
+    * add availablity for both gnu and openbsd netcat
+    * wayland
 - proxychains better support and easy off switch
-- add availablity for both gnu and openbsd netcat
-- add compatability for wayland
 - kitty computer controler -- volume
 - possibly complile this _needed feed back_
-- make custom newsboat version to include this'
+- make custom newsboat version to include this or a diff file?
 
 
 # Contribution Guidelines

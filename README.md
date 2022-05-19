@@ -24,7 +24,7 @@ add this little alias to your bashrc
         
         alias nb="/$HOME/.config/newsboat/open.sh"
 
-Also probably put the script in newsboat config file
+Also probably put the script in newsboat config file _$HOME/.config/newsboat/_
 
 Needed Dependencys
 ------------------
@@ -66,7 +66,13 @@ Todo
     * support for IPv6
 - ~~add a main window, for better control~~
 - revamp server.sh for multipal windows
-- transmit settings for server.sh
+- transmit settings for server.sh to a /tmp folder
+- option to start and login through ftp
+- update option in open.sh window
+- auto update, open.sh, from github, ask if whant to update,
+and presents the user with tree options,
+summary, witch would then give you a summary then two options,
+update or do not update 
 - auto update settings for server.sh, 
 store them in main computers config
 - add superior window management for bspwm 

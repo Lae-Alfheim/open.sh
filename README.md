@@ -66,6 +66,7 @@ Todo
     * support for IPv6
     * loging in gnome, bash, startx, ETC
 - ~~add a main window, for better control~~
+- add make lists from mac
 - revamp server.sh for multipal windows
 - find a way to use other terminals, st, alacritty, ETC
 - transmit settings for server.sh to a /tmp folder

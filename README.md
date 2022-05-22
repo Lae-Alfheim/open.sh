@@ -73,8 +73,10 @@ Todo
 - option to start and login through ftp
 - update option in open.sh window
 - auto update, open.sh, from github, ask if whant to update,
-and presents the user with tree options,
-summary, witch would then give you a summary then two options,
+and presents the user with two options,
+summary, and no
+- define in config whether to ask to update or not
+- summary of updates, would then give you a summary then two options,
 update or do not update 
 - auto update settings for server.sh, 
 store them in main computers config

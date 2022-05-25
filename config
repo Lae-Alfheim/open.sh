@@ -32,6 +32,7 @@ download-timeout 60
 # IP=192.10.24
 # IP2=192.0.10
 # LOG=TRUE
+# ASK=FALSE ## ask to go to mac or stay
 # VIDEO=FALSE ## video goes to second computer
 # URL=TRUE ## url without video stays on host computer
 #

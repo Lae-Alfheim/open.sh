@@ -51,7 +51,7 @@ else
         printf " ██████╗ ██████╗ ███████╗███╗   ██╗   ███████╗██╗  ██╗\n██╔═══██╗██╔══██╗██╔════╝████╗  ██║   ██╔════╝██║  ██║\n██║   ██║██████╔╝█████╗  ██╔██╗ ██║   ███████╗███████║\n██║   ██║██╔═══╝ ██╔══╝  ██║╚██╗██║   ╚════██║██╔══██║\n╚██████╔╝██║     ███████╗██║ ╚████║██╗███████║██║  ██║\n ╚═════╝ ╚═╝     ╚══════╝╚═╝  ╚═══╝╚═╝╚══════╝╚═╝  ╚═╝\n"
         printf "starting ...\n"
         nb () {
-                if [[ $(cat $HOME/.config/newsboat/config | grep "# " | grep -v "##" | grep "OPEN.SH" -A5 | grep TOR | sed 's/# //') == *TOR=FALSE* ]]; then
+                if [[ $(cat $HOME/.config/newsboat/config | grep "# " | grep -v "##" | grep "OPEN.SH" -A6 | grep TOR | sed 's/# //') == *TOR=FALSE* ]]; then
                         kitty --detach newsboat
                         printf "\n opening without tor"
                 else

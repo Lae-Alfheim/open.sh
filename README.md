@@ -46,9 +46,11 @@ _most of the above I want to be down here_
 Todo
 ====
 
+_This is mainly for me_
+
 - Options, commited out, in newsboat config
     * Option to change proxy port and ip
-    * Option to stop proxychains
+    * ~~Option to stop proxychains~~
     * Option to change default browser
     * Option to turn off new window
     * Option to change default media viewer

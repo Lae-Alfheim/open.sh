@@ -50,7 +50,17 @@ else
         fi
         printf " ██████╗ ██████╗ ███████╗███╗   ██╗   ███████╗██╗  ██╗\n██╔═══██╗██╔══██╗██╔════╝████╗  ██║   ██╔════╝██║  ██║\n██║   ██║██████╔╝█████╗  ██╔██╗ ██║   ███████╗███████║\n██║   ██║██╔═══╝ ██╔══╝  ██║╚██╗██║   ╚════██║██╔══██║\n╚██████╔╝██║     ███████╗██║ ╚████║██╗███████║██║  ██║\n ╚═════╝ ╚═╝     ╚══════╝╚═╝  ╚═══╝╚═╝╚══════╝╚═╝  ╚═╝\n"
         printf "starting ...\n"
-        kitty --detach proxychains -q newsboat
+        nb () {
+                if [[ $(cat $HOME/.config/newsboat/config | grep "# " | grep -v "##" | grep "OPEN.SH" -A5 | grep TOR | sed 's/# //') == *TOR=FALSE* ]]; then
+                        kitty --detach newsboat
+                        printf "\n opening without tor"
+                else
+                        kitty --detach proxychains -q newsboat
+                        printf "\n opening with tor"
+                fi
+                printf "\n Openining \n"
+        }
+        nb
         while read -n 1 feed
         do
                 case $feed in  # TODO add more options
@@ -114,7 +124,7 @@ else
                         ;;
                 "n" | "N")      # Open Newsboat Differ Urls
                         # TODO add more url options
-                        newsboat
+                        nb
                         ;;
                 "h" | "H")      # Help Menu
                         # TODO add to help menu
@@ -157,7 +167,7 @@ else
                         #kitty --detach parallel -u ::: '' 'sh; while true; do sleep 15s; notify-send -w -a LOG Log; done'
                         ;;
                 *)              # Open Newsboat
-                        kitty --detach proxychains -q newsboat
+                        nb
                         ;;
                 esac
         done

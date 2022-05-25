@@ -66,11 +66,13 @@ else
                                 "l" | "L")
                                         kitty --detach nvim $HOME/dox/NOTES/log.md
                                         break
+                                        ;;
                                 *)
                                         break
                                         ;;
                                 esac
                         done
+                        ;;
                 "m" | "M")      # Go to Mac toggle
                         case $(cat /tmp/newsboat-config 2> /dev/null) in
                         *Mac=yes*)

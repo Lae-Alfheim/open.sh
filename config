@@ -26,7 +26,6 @@ download-retries 10
 download-timeout 60
 
 # -- OPEN.SH ----------
-# !!EXAMPLE NO IMPLEMENTED!!
 #
 # TOR=TRUE
 # PORT=2999

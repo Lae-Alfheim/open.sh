@@ -3,21 +3,34 @@
 url=$1 # Sets input to be value url
 
 if pidof newsboat; then
+
         printf "\nNewsboat Is Found\n"
-        if [[ $(cat /tmp/newsboat-config) == *Mac=yes* ]]; then
-                echo "Mac is the Yes"
-                ip=192.168.0.18
-#               ip=192.168.1.244
-                port=2999
-                echo $url | nc $ip $port -q 1
-                exit 
+        if [[ $url == "status" ]]; then
+                echo status
+#        if [[ $(cat $HOME/.config/newsboat/config | grep "# " | grep -v "##" | grep "OPEN.SH" -A10 | grep  | sed 's/# //') == *TOR=FALSE* ]]; then
         elif [[ -z $url ]]; then
                 printf "\nThere is nothing\n"
                 exit
         else
-
-                media=True
-                if [[ $url == *odysee.com/* || $url == *youtube.com/* || $url == *surveillance-report.castos.com/episodes/* ]]; then
+                if [[  $(cat /tmp/newsboat-config) == *Mac=yes* && $(cat $HOME/.config/newsboat/config | grep "# " | grep -v "##" | grep "OPEN.SH" -A10) == *VIDEO=FALSE* ]]; then
+                        if [[ $url == *odysee.com/* || $url == *youtube.com/* || $url == *surveillance-report.castos.com/episodes/* ]]; then
+                                echo "Mac is the Yes"
+                                ip=192.168.0.18
+                                #ip=192.168.1.244
+                                port=2999
+                                echo $url | nc $ip $port -q 1
+                                exit
+                        else
+                                echo "not video"
+                        fi
+                elif [[ $(cat /tmp/newsboat-config) == *Mac=yes* && $(cat $HOME/.config/newsboat/config | grep "# " | grep -v "##" | grep "OPEN.SH" -A10) == *URl=FALSE* ]]; then
+                        echo "Mac is the Yes"
+                        ip=192.168.0.18
+                        #ip=192.168.1.244
+                        port=2999
+                        echo $url | nc $ip $port -q 1
+                        exit
+                elif [[ $url == *odysee.com/* || $url == *youtube.com/* || $url == *surveillance-report.castos.com/episodes/* ]]; then
                         mpv $url
                         exit
                 else
@@ -34,14 +47,6 @@ else
                 # TODO select back nb window after launch using xdotool
                 # TODO detect for xdotool
                 printf "\n\nOpenining LOG\n"
- #              while /bin/true; do  # notification for log
- #                      if [[ $(cat /tmp/newsboat-config) == *Log=no* ]]; then
- #                              break
- #                      fi
- #                      echo hi
- #                      notify-send "$(date "+%Y-%m-%d")" "$(echo ""; cat $HOME/dox/NOTES/log.md | grep $(date "+%Y-%m-%d") -A9999999999 | grep -v ~~ | grep __Extra -B99 | grep __Extra -v | grep -v '^[[:space:]]*$' | grep -v $(date "+%Y-%m-%d") )"
- #                      sleep 15m
- #              done &
                 kitty --detach nvim $HOME/dox/NOTES/log.md
                 config="Log=yes\n$(cat /tmp/newsboat-config | grep -v 'Log=no' | grep -v 'Log=yes' | grep -v '^$')"
                 printf "\n"
@@ -51,7 +56,7 @@ else
         printf " ██████╗ ██████╗ ███████╗███╗   ██╗   ███████╗██╗  ██╗\n██╔═══██╗██╔══██╗██╔════╝████╗  ██║   ██╔════╝██║  ██║\n██║   ██║██████╔╝█████╗  ██╔██╗ ██║   ███████╗███████║\n██║   ██║██╔═══╝ ██╔══╝  ██║╚██╗██║   ╚════██║██╔══██║\n╚██████╔╝██║     ███████╗██║ ╚████║██╗███████║██║  ██║\n ╚═════╝ ╚═╝     ╚══════╝╚═╝  ╚═══╝╚═╝╚══════╝╚═╝  ╚═╝\n"
         printf "starting ...\n"
         nb () {
-                if [[ $(cat $HOME/.config/newsboat/config | grep "# " | grep -v "##" | grep "OPEN.SH" -A6 | grep TOR | sed 's/# //') == *TOR=FALSE* ]]; then
+                if [[ $(cat $HOME/.config/newsboat/config | grep "# " | grep -v "##" | grep "OPEN.SH" -A10 | grep TOR | sed 's/# //') == *TOR=FALSE* ]]; then
                         kitty --detach newsboat
                         printf "\n opening without tor"
                 else

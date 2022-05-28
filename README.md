@@ -46,14 +46,14 @@ _most of the above I want to be down here_
 Todo
 ====
 
-_This is mainly for me_
-
 - Options, commited out, in newsboat config
     * Option to change proxy port and ip
     * ~~Option to stop proxychains~~
     * Option to change default browser
     * Option to turn off new window
     * Option to change default media viewer
+    * ~~Option to goto mac on video~~
+    * ~~Option to goto mac on url~~
 - Detect if missing any required or wanted packages
     - Warn user
     - Try not to use the one not installed
@@ -67,24 +67,26 @@ _This is mainly for me_
     * some encryption for transmission of urls _ssh?_
     * support for IPv6
     * loging in gnome, bash, startx, ETC
+    * add copy to clip board as alternative to opening browser or video
+- newsboat macro to goto main nb window
 - ~~add a main window, for better control~~
+- after close newsboat or log window select main controler
+- bspwm spacific window managment things,
+    * main is floating when exit newsboat, or log, the go back to non floating, and in small corner
+    * other window manager spacific (this is a maybe)
 - add make lists from mac
 - revamp server.sh for multipal windows
 - find a way to use other terminals, st, alacritty, ETC
-- transmit settings for server.sh to a /tmp folder
+- ~~transmit server.sh to a /tmp folder~~
+- Transmited urls stack in server.sh
 - option to start and login through ftp
 - update option in open.sh window
-- auto update, open.sh, from github, ask if whant to update,
-and presents the user with two options,
-summary, and no
+- auto update, open.sh, from github, ask if whant to update, and presents the user with two options, summary, and no
 - define in config whether to ask to update or not
-- summary of updates, would then give you a summary then two options,
-update or do not update 
-- auto update settings for server.sh, 
-store them in main computers config
-- add superior window management for bspwm 
-- proxychains better support and easy off switch
-- kitty computer controler -- volume
+- summary of updates, would then give you a summary then two options, update or do not update 
+- auto update settings for server.sh, store them in main computers config
+- ~~proxychains better support and easy off switch~~
+- volume controller
 - possibly complile this _needed feed back_
 - make custom newsboat version to include this or a diff file?
 
@@ -95,3 +97,4 @@ store them in main computers config
 * Make an individual pull request for each suggestion.
 * New code, or code improvements to the existing code is welcome.
 * Try to check your spelling and grammar, and dont hesitate to fix mine.
+

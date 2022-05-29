@@ -87,8 +87,9 @@ else
                                         ;;
                                 esac
                         done
+                        printf "\n"
                         ;;
-                "m" | "M")      # Go to Mac toggle
+                m" | "M")      # Go to Mac toggle
                         case $(cat /tmp/newsboat-config 2> /dev/null) in
                         *Mac=yes*)
                                 config="Mac=no\n$(cat /tmp/newsboat-config | grep -v 'Mac=no' | grep -v 'Mac=yes' | grep -v '^$')"

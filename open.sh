@@ -120,6 +120,7 @@ else
                                         ;;
                                 esac
                         done
+                        printf "\n"
                         ;;
                 "c" | "C")      # Print Config
                         printf "\n"

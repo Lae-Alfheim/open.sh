@@ -16,8 +16,8 @@ That proxys through Tor.__
 _Please help, I no spell good_
 
 
-Recomend
---------
+Recomended use / Guide
+----------------------
 
 I recommend that you should 
 add this little alias to your bashrc
@@ -46,6 +46,7 @@ _most of the above I want to be down here_
 Todo
 ====
 
+- add readme how to use program
 - Options, commited out, in newsboat config
     * Option to change proxy port and ip
     * ~~Option to stop proxychains~~
@@ -97,4 +98,3 @@ Todo
 * Make an individual pull request for each suggestion.
 * New code, or code improvements to the existing code is welcome.
 * Try to check your spelling and grammar, and dont hesitate to fix mine.
-

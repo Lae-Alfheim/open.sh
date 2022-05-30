@@ -146,18 +146,10 @@ else
                                 printf "\n"
                                 ;;
                         *) 
-                # TODO detect for kitty
-                # TODO select back nb window after launch using xdotool
-                # TODO detect for xdotool
-#                               printf "\n\nOpenining LOG\n"
-#                               while /bin/true; do
-#                                       if [[ $(cat /tmp/newsboat-config) == *Log=no* ]]; then
-#                                               break
-#                                       fi
-#                                       echo hi
-#                                       notify-send "$(date "+%Y-%m-%d")" "$(echo ""; cat $HOME/dox/NOTES/log.md | grep $(date "+%Y-%m-%d") -A9999999999 | grep -v ~~ | grep __Extra -B99 | grep __Extra -v | grep -v '^[[:space:]]*$' | grep -v $(date "+%Y-%m-%d") )"
-#                                       sleep 15m
-#                               done &
+                        # TODO detect for kitty
+                        # TODO select back nb window after launch using xdotool
+                        # TODO detect for xdotool
+                                printf "\n\nOpenining LOG\n"
                                 kitty --detach nvim $HOME/dox/NOTES/log.md
                                 config="Log=yes\n$(cat /tmp/newsboat-config | grep -v 'Log=no' | grep -v 'Log=yes' | grep -v '^$')"
                                 printf "\n"
@@ -165,13 +157,6 @@ else
                                 printf "\n"
                                 ;;
                         esac
-                        #printf "\n\nOpenining LOG\n"
-                        #while /bin/true; do
-                        #        sleep 15s
-                        #        notify-send -w -a LOG Log "Hola mon"
-                        #done &
-                        #kitty --detach nvim $HOME/dox/NOTES/log.md
-                        #kitty --detach parallel -u ::: '' 'sh; while true; do sleep 15s; notify-send -w -a LOG Log; done'
                         ;;
                 *)              # Open Newsboat
                         nb

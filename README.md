@@ -10,8 +10,8 @@
 __OPEN.SH__
 ===========
 
-    __An addon script for newsboat, with cross computer url sharing.
-    That proxys through Tor.__
+__An addon script for newsboat, with cross computer url sharing.
+That proxys through Tor.__
 
 _Please help, I no spell good_
 

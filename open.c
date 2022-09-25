@@ -7,6 +7,9 @@
 struct termios old_tio, new_tio;
 unsigned int width=15;
 
+char *url;
+char urlout[sizeof(url)];
+
 /* get input {{{ */
 int getinput() {
     int value;
@@ -51,14 +54,15 @@ int getinput() {
 /* parts {{{ */
 void openurl() {
 
-    printf("Click on Browser");
-
-    sleep(1);
+    sleep(3);
 
     system("xdotool key --clearmodifiers ctrl+t");
 
-    char *url = "xdotool type https://yewtu.be";
-    system(url);
+    // = "xdotool";//"xdotool type https://yewtu.be";
+    sprintf(urlout,"xdotool type %s", url);
+    printf("%s", urlout);
+    //url = "xdotool type" + url;
+    system(urlout);
     //system("xdotool type %c");
 
     system("xdotool key --clearmodifiers Return");
@@ -76,22 +80,23 @@ void printmenu(register unsigned int select) {
             printf("\033[1;37m>");
         }
         if (e == 1) { /* space to remove extras*/
-            printf("OPEN  \033[0;0m\n");
+            printf("OPEN    \033[0;0m\n");
         } else if (e == 2) {
-            printf("URL  \033[0;0m\n");
+            printf("URL    \033[0;0m\n");
         } else if (e == 3) {
-            printf("SETTINGS  \033[0;0m\n");
+            printf("LOG    \033[0;0m\n");
         } else if (e == 4) {
-            printf("QUIT  \033[0;0m\n");
+            printf("QUIT    \033[0;0m\n");
         } else {}
     }
     /* if ( there is an error) {} */
     printf(":: ");
 }
 void menu() {
-    printmenu(select);
 
     register unsigned int select = 1;
+    printmenu(select);
+
     do {
         int input = getinput();
         if (input == 1) {
@@ -103,13 +108,20 @@ void menu() {
                 select++;
             }
         } else if (input == 0) {
+            printf("\n");
             break;
         } else if (input == 5) {
             if (select == 1) {
-                printf("start");
+                system("st proxychains -q newsboat &");
             } else if (select == 2) {
+                select = 1;
+                printf("Click on Browser");
                 openurl();
+            } else if (select == 3) {
+                select = 1;
+                system("nvim $HOME/dox/NOTES/log.md");
             } else {
+                printf("\n");
                 break;
             }
         } else {}
@@ -123,19 +135,30 @@ void menu() {
 /* menu }}} */
 
 
-int main() {
-    /* termios */
-    tcgetattr(STDIN_FILENO, &old_tio);
-    new_tio = old_tio;
-    new_tio.c_lflag &= (~ICANON & ~ECHO);
-    tcsetattr(STDIN_FILENO, TCSANOW, &new_tio);
+int main(int argc, char *argv[]) {
+
+    if (argc == 2) {
+        printf("%s", argv[1]);
+        url = argv[1];
+        openurl();
+    } else if (argc == 1) {
+        /* termios */
+        tcgetattr(STDIN_FILENO, &old_tio);
+        new_tio = old_tio;
+        new_tio.c_lflag &= (~ICANON & ~ECHO);
+        tcsetattr(STDIN_FILENO, TCSANOW, &new_tio);
 
 
-    printf(" ██████╗ ██████╗ ███████╗███╗   ██╗   ███████╗██╗  ██╗\n██╔═══██╗██╔══██╗██╔════╝████╗  ██║   ██╔════╝██║  ██║\n██║   ██║██████╔╝█████╗  ██╔██╗ ██║   ███████╗███████║\n██║   ██║██╔═══╝ ██╔══╝  ██║╚██╗██║   ╚════██║██╔══██║\n╚██████╔╝██║     ███████╗██║ ╚████║██╗███████║██║  ██║\n ╚═════╝ ╚═╝     ╚══════╝╚═╝  ╚═══╝╚═╝╚══════╝╚═╝  ╚═╝\n");
+        printf(" ██████╗ ██████╗ ███████╗███╗   ██╗   ███████╗██╗  ██╗\n██╔═══██╗██╔══██╗██╔════╝████╗  ██║   ██╔════╝██║  ██║\n██║   ██║██████╔╝█████╗  ██╔██╗ ██║   ███████╗███████║\n██║   ██║██╔═══╝ ██╔══╝  ██║╚██╗██║   ╚════██║██╔══██║\n╚██████╔╝██║     ███████╗██║ ╚████║██╗███████║██║  ██║\n ╚═════╝ ╚═╝     ╚══════╝╚═╝  ╚═══╝╚═╝╚══════╝╚═╝  ╚═╝\n");
 
-    menu();
-    //printf("\x001b[1000D welcome to");
+        menu();
+        //printf("\x001b[1000D welcome to");
 
-    tcsetattr(STDIN_FILENO, TCSANOW, &old_tio); /* restore former settings */
+        /* END */
+        tcsetattr(STDIN_FILENO, TCSANOW, &old_tio); /* restore former settings */
+
+    }
+
     return 0;
+
 }

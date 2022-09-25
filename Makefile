@@ -6,3 +6,5 @@ test:
 
 clean:
 	rm -f open.o
+install:
+	gcc open.c -o open.o && cp open.o /usr/bin/nb

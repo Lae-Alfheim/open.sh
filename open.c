@@ -1,16 +1,25 @@
+/*
+ * open.sh
+ *
+ * A add-on script for newsboat, with cross computer URL sharing,
+ * and every day log support, along with proxying through tor.
+ */
+
 #include <stdlib.h>
 #include <termios.h>
 #include <stdio.h>
 #include <unistd.h>
 
 
+/* Global Variable {{{ */
 struct termios old_tio, new_tio;
 unsigned int width=15;
 
 char *url;
-char urlout[sizeof(url)];
+char urlout[sizeof(url)+14];
+/* }}} */
 
-/* get input {{{ */
+/* Get Input {{{ */
 int getinput() {
     int value;
     char input = getchar();
@@ -49,9 +58,9 @@ int getinput() {
     }
     return value;
 }
-/* get input }}} */
+/* }}} */
 
-/* parts {{{ */
+/* Open URL {{{ */
 void openurl() {
 
     sleep(3);
@@ -67,9 +76,9 @@ void openurl() {
 
     system("xdotool key --clearmodifiers Return");
 }
-/* parts }}} */
+/* }}} */
 
-/* menu {{{ */
+/* Menu {{{ */
 void printmenu(register unsigned int select) {
     register unsigned int e = 1;
 
@@ -116,6 +125,7 @@ void menu() {
             } else if (select == 2) {
                 select = 1;
                 printf("Click on Browser");
+                url = "https://yewtu.be/";
                 openurl();
             } else if (select == 3) {
                 select = 1;
@@ -132,8 +142,11 @@ void menu() {
     } while (select != 0);
 }
 
-/* menu }}} */
+/* }}} */
 
+/*
+ * MAIN
+ */
 
 int main(int argc, char *argv[]) {
 
@@ -148,11 +161,9 @@ int main(int argc, char *argv[]) {
         new_tio.c_lflag &= (~ICANON & ~ECHO);
         tcsetattr(STDIN_FILENO, TCSANOW, &new_tio);
 
-
         printf(" ██████╗ ██████╗ ███████╗███╗   ██╗   ███████╗██╗  ██╗\n██╔═══██╗██╔══██╗██╔════╝████╗  ██║   ██╔════╝██║  ██║\n██║   ██║██████╔╝█████╗  ██╔██╗ ██║   ███████╗███████║\n██║   ██║██╔═══╝ ██╔══╝  ██║╚██╗██║   ╚════██║██╔══██║\n╚██████╔╝██║     ███████╗██║ ╚████║██╗███████║██║  ██║\n ╚═════╝ ╚═╝     ╚══════╝╚═╝  ╚═══╝╚═╝╚══════╝╚═╝  ╚═╝\n");
 
         menu();
-        //printf("\x001b[1000D welcome to");
 
         /* END */
         tcsetattr(STDIN_FILENO, TCSANOW, &old_tio); /* restore former settings */

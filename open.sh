@@ -106,7 +106,6 @@ else
                         esac
                         ;;
                 "e" | "E")      # Edit Connection Details
-                        printf "\n Work in Progress: Edit Connection Details\n"
                         # TODO fix/add more options and replace test
                         while read -n 1 feed
                         do
@@ -145,7 +144,7 @@ else
                                 printf $config | tee /tmp/newsboat-config
                                 printf "\n"
                                 ;;
-                        *) 
+                        *)
                         # TODO detect for kitty
                         # TODO select back nb window after launch using xdotool
                         # TODO detect for xdotool

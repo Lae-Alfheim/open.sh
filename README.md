@@ -13,9 +13,6 @@ __OPEN.SH__
 __An add-on script for newsboat, with cross computer URL sharing.
 That proxy's through Tor.__
 
-_Please help, I no spell good_
-
-
 Recommended use / Guide
 ----------------------
 

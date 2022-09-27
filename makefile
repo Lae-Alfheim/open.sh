@@ -3,6 +3,8 @@ open: open.c
 
 test:
 	gcc open.c -o open.o && ./open.o
+test2:
+	gcc open.c -o open.o && ./open.o api.invidious.io
 
 clean:
 	rm -f open.o

@@ -25,6 +25,30 @@ add this little alias to your bashrc
 
 Also probably put the script in newsboat "config" file _$HOME/.config/newsboat/_
 
+INSTALLATION
+------------
+
+To install to user binary file, using nb file name.
+        
+        sudo make install
+
+_Need root privilages for moving the executable to /usr/bin/ directory._
+
+__For developers__
+
+For help in use of development I use the
+        
+        make test
+
+Command to test out the menu and other tui type things.
+
+        make test2
+
+I use this command to test the URL opening function from
+out side the TUI. URL configurable in makefile, 
+_if you can find a better URL, give me your reasoning's, and ill consider changing it_
+
+
 Needed Dependencys
 ------------------
 

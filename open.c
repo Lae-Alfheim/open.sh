@@ -5,18 +5,21 @@
  * and every day log support, along with proxying through tor.
  */
 
-#include <stdlib.h>
-#include <termios.h>
 #include <stdio.h>
+#include <stdlib.h>
 #include <unistd.h>
+#include <termios.h>
+#include "config.h"
 
 
 /* Global Variable {{{ */
+
 struct termios old_tio, new_tio;
-unsigned int width=15;
+    /* WIDTH is defined in config.h*/
 
 char *url;
 char urlout[sizeof(url)+14];
+
 /* }}} */
 
 /* Get Input {{{ */
@@ -67,7 +70,6 @@ void openurl() {
 
     system("xdotool key --clearmodifiers ctrl+t");
 
-    // = "xdotool";//"xdotool type https://yewtu.be";
     sprintf(urlout,"xdotool type %s", url);
     printf("%s", urlout);
     //url = "xdotool type" + url;
@@ -84,7 +86,7 @@ void printmenu(register unsigned int select) {
 
     printf("\n");
     for (e=1; e<=4; e++) {
-        printf("%*c",width,width);
+        printf("%*c",WIDTH,WIDTH);
         if (select == e) {
             printf("\033[1;37m>");
         }
@@ -118,24 +120,24 @@ void menu() {
             }
         } else if (input == 0) {
             printf("\n");
-            break;
+            exit(0);
         } else if (input == 5) {
             if (select == 1) {
                 system("st proxychains -q newsboat &");
             } else if (select == 2) {
                 select = 1;
                 printf("Click on Browser");
-                url = "https://yewtu.be/";
+                url = DEFAULTURL;
                 openurl();
             } else if (select == 3) {
                 select = 1;
                 system("nvim $HOME/dox/NOTES/log.md");
             } else {
                 printf("\n");
-                break;
+                exit(0);
             }
-        } else {}
-        sleep(0.25);
+        } else {} /* Just in case implement later, stops a bug */
+        usleep(25000);
 
         printf("\x1b[5A"); /* # = menu options + 1*/
         printmenu(select);

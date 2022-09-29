@@ -3,9 +3,10 @@
 /* {{{ */
 
 
-const unsigned int WIDTH=15; /* How Many Spaces Till Menu */
+const unsigned int WIDTH=16; /* How Many Spaces Till Menu */
+const unsigned int CLEAR=8; /* How Many Spaces After Menu */
 const char *DEFAULTURL = "api.invidious.io"; /* Default */
-const char *NEWSBOAT = "st newsboat &"; /* Newsboat launcher */
+const char *NEWSBOAT = "st newsboat &"; /* Newsboat Launcher */
 const char *LOG = "nvim $HOME/dox/NOTES/log.md";
 
 

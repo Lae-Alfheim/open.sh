@@ -70,7 +70,7 @@ Todo
 - ~~add makefile~~
 - ~~add readme how to use program~~
 - add support
-    * ~~other browser like firefox, librewolf, brave, lynx, links, etc... Including detecting witch is installed~~ in open.o
+    * ~~other browser like firefox, librewolf, brave, lynx, links, etc... Including detecting witch is installed~~
     * "log" text editors, vim, vi, ed, ETC
     * media viewer vlc, (idk), etc...
     * Add availability for both gnu and openbsd netcat

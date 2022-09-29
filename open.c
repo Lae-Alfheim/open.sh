@@ -123,7 +123,8 @@ void menu() {
             exit(0);
         } else if (input == 5) {
             if (select == 1) {
-                system("st proxychains -q newsboat &");
+                //system("st proxychains -q newsboat &");
+                system("st -q newsboat &");
             } else if (select == 2) {
                 select = 1;
                 printf("Click on Browser");

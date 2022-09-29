@@ -13,18 +13,6 @@ __OPEN.SH__
 __An add-on script for newsboat, with cross computer URL sharing.
 That proxy's through Tor.__
 
-Recommended use / Guide
-----------------------
-
-__Whist Using the new open.c this is phased out__
-
-I recommend that you should 
-add this little alias to your bashrc
-        
-        alias nb="/$HOME/.config/newsboat/open.sh"
-
-Also probably put the script in newsboat "config" file _$HOME/.config/newsboat/_
-
 INSTALLATION
 ------------
 
@@ -48,6 +36,17 @@ I use this command to test the URL opening function from
 out side the TUI. URL configurable in makefile, 
 _if you can find a better URL, give me your reasoning's, and ill consider changing it_
 
+
+Recommended use / Guide
+----------------------
+
+__Whist Using the new open.c this is phased out__
+I recommend that you should 
+add this little alias to your bashrc
+        
+        alias nb="/$HOME/.config/newsboat/open.sh"
+
+Also probably put the script in newsboat "config" file _$HOME/.config/newsboat/_
 
 Needed Dependencys
 ------------------

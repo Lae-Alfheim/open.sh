@@ -3,11 +3,13 @@
 /* {{{ */
 
 
-/* How many spaces till the menu prints */
-const unsigned int WIDTH=15;
+const unsigned int WIDTH=15; /* How Many Spaces Till Menu */
+const char *DEFAULTURL = "api.invidious.io"; /* Default */
+const char *NEWSBOAT = "st newsboat &"; /*  */
 
-/* Default URL when no other url is defined */
-const char *DEFAULTURL = "api.invidious.io";
-
+/*
+ *  to add tor to newsboat, add proxychain infront
+ * of NEWSBOAT variable
+ */
 
 /* }}} */

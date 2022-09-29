@@ -101,7 +101,7 @@ void printmenu(register unsigned int select) {
         } else {}
     }
     /* if ( there is an error) {} */
-    printf(":: ");
+    printf(":: \n:: ");
 }
 void menu() {
 
@@ -131,7 +131,7 @@ void menu() {
                 openurl();
             } else if (select == 3) {
                 select = 1;
-                system("nvim $HOME/dox/NOTES/log.md");
+                system(LOG);
             } else {
                 printf("\n");
                 exit(0);
@@ -139,7 +139,7 @@ void menu() {
         } else {} /* Just in case implement later, stops a bug */
         usleep(25000);
 
-        printf("\x1b[5A"); /* # = menu options + 1*/
+        printf("\x1b[6A"); /* #=menu options+2 for overflow*/
         printmenu(select);
     } while (select != 0);
 }

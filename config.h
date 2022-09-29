@@ -5,7 +5,9 @@
 
 const unsigned int WIDTH=15; /* How Many Spaces Till Menu */
 const char *DEFAULTURL = "api.invidious.io"; /* Default */
-const char *NEWSBOAT = "st newsboat &"; /*  */
+const char *NEWSBOAT = "st newsboat &"; /* Newsboat launcher */
+const char *LOG = "nvim $HOME/dox/NOTES/log.md";
+
 
 /*
  *  to add tor to newsboat, add proxychain infront

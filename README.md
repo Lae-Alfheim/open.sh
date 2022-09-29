@@ -51,13 +51,7 @@ Also probably put the script in newsboat "config" file _$HOME/.config/newsboat/_
 Needed Dependencys
 ------------------
 
-- [Kitty](https://sw.kovidgoyal.net/kitty/)
-- [Proxychains](https://github.com/haad/proxychains) or
-  [Proxychains-ng](https://github.com/rofl0r/proxychains-ng)
-- [xdotool](https://github.com/jordansissel/xdotool)
-- [openbsd-netcat](https://salsa.debian.org/debian/netcat-openbsd)
-- [tor-browser](https://www.torproject.org/)
-- [mpv](https://mpv.io/)
+- [xdotool](https://github.com/jordansissel/xdotool) _for browsers_
 - [nvim](https://neovim.io/) _for log function_
 
 Optional Dependences
@@ -65,11 +59,16 @@ Optional Dependences
 
 _most of the above I want to be down here_
 
+- [Proxychains](https://github.com/haad/proxychains) or
+- [Proxychains-ng](https://github.com/rofl0r/proxychains-ng)
+- [mpv](https://mpv.io/)
+- [openbsd-netcat](https://salsa.debian.org/debian/netcat-openbsd)
+
 Todo
 ====
 
-- add makefile
-- add readme how to use program
+- ~~add makefile~~
+- ~~add readme how to use program~~
 - add support
     * ~~other browser like firefox, librewolf, brave, lynx, links, etc... Including detecting witch is installed~~ in open.o
     * "log" text editors, vim, vi, ed, ETC
@@ -77,20 +76,23 @@ Todo
     * Add availability for both gnu and openbsd netcat
     * Wayland
     * Multiple ip and ip selection
-    * some encryption for transmission of urls _ssh?_
+    * some encryption for transmission of urls
     * support for IPv6
-    * loging in gnome, bash, startx, ETC
+    * Automatic loging in?
+    * Support for media, Cage WM?
     * add copy to clip board as alternative to opening browser or video
 - ~~add a main window, for better control~~
-- add a config.h
+- ~~add a config.h~~
 - revamp server for multiple windows
 - find a way to use other terminals, st, alacritty, ETC
+- server in c
 - ~~transmit server.sh to a /tmp folder~~
+- ~~proxychains better support and easy off switch~~
+- proxychains better support and easy off switch in c
 - Transmited urls stack in server.sh
 - option to start and login through ftp
 - auto update settings for server.sh, store them in main computers config
 - summary of updates, would then give you a summary then two options, update or do not update 
-- ~~proxychains better support and easy off switch~~
 
 
 # Contribution Guidelines

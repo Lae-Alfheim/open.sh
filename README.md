@@ -71,8 +71,8 @@ Todo
 - ~~add readme how to use program~~
 - add support
     * ~~other browser like firefox, librewolf, brave, lynx, links, etc... Including detecting witch is installed~~
-    * "log" text editors, vim, vi, ed, ETC
-    * media viewer vlc, (idk), etc...
+    * ~~"log" text editors, vim, vi, ed, ETC~~
+    * media viewer mpv, vlc, (idk), etc...
     * Add availability for both gnu and openbsd netcat
     * Wayland
     * Multiple ip and ip selection

@@ -19,13 +19,13 @@ Needed Dependencys
 ------------------
 
 - [xdotool](https://github.com/jordansissel/xdotool) _for browsers_
-- [nvim](https://neovim.io/) _for log function_
 
 Optional Dependences
 --------------------
 
 _most of the above I want to be down here_
 
+- [nvim](https://neovim.io/) _for log function_
 - [Proxychains](https://github.com/haad/proxychains) or
 - [Proxychains-ng](https://github.com/rofl0r/proxychains-ng)
 - [mpv](https://mpv.io/)

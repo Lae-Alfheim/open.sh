@@ -7,6 +7,9 @@
  ╚═════╝ ╚═╝     ╚══════╝╚═╝  ╚═══╝╚═╝╚══════╝╚═╝  ╚═╝
 </pre>
 
+
+![version1](img/OpenCServerShow.png "version1")
+
 __OPEN.SH__
 ===========
 
@@ -72,8 +75,8 @@ Todo
 - add support
     * ~~other browser like firefox, librewolf, brave, lynx, links, etc... Including detecting witch is installed~~
     * ~~"log" text editors, vim, vi, ed, ETC~~
-    * media viewer mpv, vlc, (idk), etc...
-    * Add availability for both gnu and openbsd netcat
+    * ~~media viewer mpv, vlc, (idk), etc...~~ : open.c
+    * ~~Add availability for both gnu and openbsd netcat~~ : removing the middle man
     * Wayland
     * Multiple ip and ip selection
     * some encryption for transmission of urls
@@ -83,15 +86,14 @@ Todo
     * add copy to clip board as alternative to opening browser or video
 - ~~add a main window, for better control~~
 - ~~add a config.h~~
-- revamp server for multiple windows
-- find a way to use other terminals, st, alacritty, ETC
+- find a way to use other terminals kitty, alacritty, ETC : scroll stops working
+- ~~client in c~~
 - server in c
 - ~~transmit server.sh to a /tmp folder~~
 - ~~proxychains better support and easy off switch~~
+- Multipal newsboat urls
 - proxychains better support and easy off switch in c
-- Transmited urls stack in server.sh
 - option to start and login through ftp
-- auto update settings for server.sh, store them in main computers config
 - summary of updates, would then give you a summary then two options, update or do not update 
 
 

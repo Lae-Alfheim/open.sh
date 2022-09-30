@@ -69,11 +69,13 @@ int getinput() {
 /* }}} */
 
 /* Client {{{ */
+
+#define CLIENTMAX 4
 /* Print Client Menu {{{ */
 void printClientMenu(register unsigned int select) {
     register unsigned int e = 1;
     printf("\n");
-    for (e=1; e<=5; e++) {
+    for (e=1; e<=CLIENTMAX; e++) {
         printf("%*c",WIDTH,WIDTH);
         if (select == e) {
             printf("\033[1;37m>");
@@ -89,31 +91,6 @@ void printClientMenu(register unsigned int select) {
         } else {}
         printf("\033[0;0m%*c\n",CLEAR,CLEAR);
     }
-    printf("\x1b[6A"); /* #=menu options+2 for overflow*/
-}
-/* }}} */
-/* Control Client Menu {{{ */
-void clientMenuControl() {
-    #define CLIENTMAX 3
-    unsigned int select = 0;
-    printClientMenu(select);
-    do {
-        int input = getinput();
-        if (input == 1 && select > 1) { select--; }
-        else if (input == 2 && select < CLIENTMAX) { select++; }
-        else if (input == 0) {
-            printf("\n");
-            exit(0);
-        } else if (input == ENTER) {
-            if (select == 1) {
-            } else if (select == 2) {
-            } else {
-                exit(0);
-            }
-        } else {} /* Just in case implement later, stops a bug */
-        usleep(25000); /* 25 milliseconds */
-        printClientMenu(select);
-    } while (1);
 }
 /* }}} */
 /* callServer {{{*/
@@ -138,15 +115,47 @@ void callServer() {
 }
 
 /* }}} */
+/* Control Client Menu {{{ */
+void clientMenuControl() {
+    usleep(25000); /* 25 milliseconds */
+    unsigned int select = 0;
+    printClientMenu(select);
+    do {
+        int input = getinput();
+        if (input == 1 && select > 1) { select--; }
+        else if (input == 2) {
+            if (select < CLIENTMAX) { select++; }
+            else { select = 1; }
+        }
+        else if (input == 0) {
+            printf("\n");
+            exit(0);
+        } else if (input == ENTER) {
+            if (select == 1) {
+                system("freetube");
+                callServer();
+            } else if (select == 2) {
+            } else if (select == 3) {
+            } else {
+
+                exit(0);
+            }
+        } else {} /* Just in case implement later, stops a bug */
+        printf("\x1b[%dA", CLIENTMAX + 1);
+        usleep(25000); /* 25 milliseconds */
+        printClientMenu(select);
+    } while (1);
+}
+/* }}} */
 void client() { /* TODO: flashy client screen */
     printf("OPEN.SH Client");
-    clientMenuControl(4);
+    clientMenuControl();
 
 }
 /* }}} */
 
 /* Server {{{ */
-
+#define SERVERMAX 5
 /* Open URL {{{ */
 void openurl() {
 
@@ -196,15 +205,12 @@ void mainMenu() {
     printmenu(select);
     do {
         int input = getinput();
-        if (input == 1) {
-            if (select > 1) {
-                select--;
-            }
-        } else if (input == 2) {
-            if (select < 10) {
-                select++;
-            }
-        } else if (input == 0) {
+        if (input == 1 && select > 1) { select--; }
+        else if (input == 2) {
+            if (select < SERVERMAX) { select++; }
+            else { select = 1; }
+        }
+        else if (input == 0) {
             printf("\n");
             exit(0);
         } else if (input == 10) {
@@ -227,7 +233,7 @@ void mainMenu() {
             }
         } else {} /* Just in case implement later, stops a bug */
         usleep(25000);
-        printf("\x1b[7A"); /* #=menu options+2 for overflow*/
+        printf("\x1b[%dA", SERVERMAX+2); /* #=menu options+2 for overflow*/
         printmenu(select);
     } while (select != 0);
 }

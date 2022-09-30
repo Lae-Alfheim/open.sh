@@ -28,10 +28,20 @@
 #define LEFT    4
 #define EXIT    6
 #define ENTER   10
+
+/* Boolean variable type */
+typedef enum { F, T } boolean;
+
 /* Some are defined in config.h*/
 struct termios old_tio, new_tio; /* for termios */
 char *url;
 char urlout[sizeof(url)+14];
+/* }}} */
+/* {{{ Quit */
+void quit() {
+        tcsetattr(STDIN_FILENO, TCSANOW, &old_tio); /* Restore Former Settings */
+        exit(0);
+}
 /* }}} */
 /* Get Input {{{ */
 int getinput() {
@@ -71,6 +81,20 @@ int getinput() {
 /* Client {{{ */
 
 #define CLIENTMAX 4
+/* Music {{{ */
+int music(boolean play) {
+    if(play == T) {
+        system(MUSIC);
+        play = F;
+        printf("Playing Music");
+    } else {
+        system(MUSICSTOP);
+        play = T;
+        printf("Killed Music");
+    }
+    return play;
+}
+/* }}}*/
 /* Print Client Menu {{{ */
 void printClientMenu(register unsigned int select) {
     register unsigned int e = 1;
@@ -119,6 +143,7 @@ void callServer() {
 void clientMenuControl() {
     usleep(25000); /* 25 milliseconds */
     unsigned int select = 0;
+    boolean playMusic = T;
     printClientMenu(select);
     do {
         int input = getinput();
@@ -129,16 +154,16 @@ void clientMenuControl() {
         }
         else if (input == 0) {
             printf("\n");
-            exit(0);
+            quit();
         } else if (input == ENTER) {
             if (select == 1) {
                 system("freetube");
                 callServer();
             } else if (select == 2) {
+                playMusic = music(playMusic);
             } else if (select == 3) {
             } else {
-
-                exit(0);
+                quit();
             }
         } else {} /* Just in case implement later, stops a bug */
         printf("\x1b[%dA", CLIENTMAX + 1);
@@ -155,6 +180,7 @@ void client() { /* TODO: flashy client screen */
 /* }}} */
 
 /* Server {{{ */
+
 #define SERVERMAX 5
 /* Open URL {{{ */
 void openurl() {
@@ -269,6 +295,7 @@ int main(int argc, char *argv[]) {
         mainMenu();
 
         /* END */
+        quit();
         tcsetattr(STDIN_FILENO, TCSANOW, &old_tio); /* Restore Former Settings */
         return 0;
 

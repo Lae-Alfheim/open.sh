@@ -1,7 +1,7 @@
 __OPEN.SH__
 ===========
 
-![version1]( "version1")
+![version1](img/OpenCServerShow.png "version1")
 
 __An add-on script for newsboat, with cross computer URL sharing.
 That proxy's through Tor.__

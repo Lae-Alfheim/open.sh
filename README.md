@@ -13,19 +13,7 @@ To install to user bin file.
         
         sudo make install
 
-_Need root privilages for moving the executable to /usr/bin/ directory._
-
-
-Recommended use / Guide
-----------------------
-
-__Whist Using the new open.c this is phased out__
-I recommend that you should 
-add this little alias to your bashrc
-        
-        alias nb="/$HOME/.config/newsboat/open.sh"
-
-Also probably put the script in newsboat "config" file _$HOME/.config/newsboat/_
+_Need root privileges for moving the executable to /usr/bin/ directory._
 
 Needed Dependencys
 ------------------
@@ -46,6 +34,7 @@ _most of the above I want to be down here_
 Todo
 ====
 
+- ~~phase out open.sh~~
 - ~~add makefile~~
 - ~~add readme how to use program~~
 - add support
@@ -75,17 +64,16 @@ Todo
 
 # __For developers__
 
-For help in use of development I use the
+For help in use of development.
+This command to test out the menu and other tui type things.
         
         make test
-
-Command to test out the menu and other tui type things.
-
-        make test2
 
 I use this command to test the URL opening function from
 out side the TUI. URL configurable in makefile, 
 _if you can find a better URL, give me your reasoning's, and ill consider changing it_
+
+        make test2
 
 
 # Contribution Guidelines

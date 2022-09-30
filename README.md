@@ -1,7 +1,7 @@
 __OPEN.SH__
 ===========
 
-![version1](img/OpenCServerShow.png "version1")
+![Open.sh](img/OpenCServerShow.png "Open.sh")
 
 __An add-on script for newsboat, with cross computer URL sharing.
 That proxy's through Tor.__
@@ -9,25 +9,11 @@ That proxy's through Tor.__
 INSTALLATION
 ------------
 
-To install to user binary file, using nb file name.
+To install to user bin file.
         
         sudo make install
 
 _Need root privilages for moving the executable to /usr/bin/ directory._
-
-__For developers__
-
-For help in use of development I use the
-        
-        make test
-
-Command to test out the menu and other tui type things.
-
-        make test2
-
-I use this command to test the URL opening function from
-out side the TUI. URL configurable in makefile, 
-_if you can find a better URL, give me your reasoning's, and ill consider changing it_
 
 
 Recommended use / Guide
@@ -85,6 +71,21 @@ Todo
 - proxychains better support and easy off switch in c
 - option to start and login through ftp
 - summary of updates, would then give you a summary then two options, update or do not update 
+
+
+# __For developers__
+
+For help in use of development I use the
+        
+        make test
+
+Command to test out the menu and other tui type things.
+
+        make test2
+
+I use this command to test the URL opening function from
+out side the TUI. URL configurable in makefile, 
+_if you can find a better URL, give me your reasoning's, and ill consider changing it_
 
 
 # Contribution Guidelines

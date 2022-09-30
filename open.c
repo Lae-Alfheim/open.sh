@@ -26,6 +26,7 @@
 #define DOWN    2
 #define RIGHT   3
 #define LEFT    4
+#define EXIT    6
 #define ENTER   10
 /* Some are defined in config.h*/
 struct termios old_tio, new_tio; /* for termios */
@@ -53,10 +54,9 @@ int getinput() {
                     break;
             }
         } else {
-            value = 6; /* esc */
-        }
-    } else if (input == 119 || input == 107 || input == 5) { value = 1;
-    } else if (input == 114 || input == 106) { value = 2;
+            value = 6; /* esc */ }
+    } else if (input == 119 || input == 107) { value = 1;
+    } else if (input == 114 || input == 106 || input == 5) { value = 2;
     } else if (input == 115 || input == 108 ) { value = 3;
     } else if (input == 97 || input == 104 ) { value = 4;
     }else if (input == 113) {
@@ -84,6 +84,8 @@ void printClientMenu(register unsigned int select) {
             printf("MUSIC");
         } else if (e == 3) {
             printf("BROWSER");
+        } else if (e == 4) {
+            printf("QUIT");
         } else {}
         printf("\033[0;0m%*c\n",CLEAR,CLEAR);
     }
@@ -92,12 +94,13 @@ void printClientMenu(register unsigned int select) {
 /* }}} */
 /* Control Client Menu {{{ */
 void clientMenuControl() {
+    #define CLIENTMAX 3
     unsigned int select = 0;
     printClientMenu(select);
     do {
         int input = getinput();
         if (input == 1 && select > 1) { select--; }
-        else if (input == 2 && select < 3) { select++; }
+        else if (input == 2 && select < CLIENTMAX) { select++; }
         else if (input == 0) {
             printf("\n");
             exit(0);
@@ -137,7 +140,7 @@ void callServer() {
 /* }}} */
 void client() { /* TODO: flashy client screen */
     printf("OPEN.SH Client");
-    clientMenuControl();
+    clientMenuControl(4);
 
 }
 /* }}} */
@@ -163,7 +166,6 @@ void openurl() {
 /* Print Menu {{{ */
 void printmenu(register unsigned int select) {
     register unsigned int e = 1;
-
     printf("\n");
     for (e=1; e<=5; e++) {
         printf("%*c",WIDTH,WIDTH);
@@ -171,15 +173,15 @@ void printmenu(register unsigned int select) {
             printf("\033[1;37m>");
         }
         if (e == 1) { /* space to remove extras*/
-            printf("open");
+            printf("OPEN");
         } else if (e == 2) {
-            printf("url");
+            printf("URL");
         } else if (e == 3) {
-            printf("log");
+            printf("LOG");
         } else if (e == 4) {
-            printf("client");
+            printf("CLIENT");
         } else if (e == 5) {
-            printf("quit");
+            printf("QUIT");
         } else {}
         printf("\033[0;0m%*c\n",CLEAR,CLEAR);
     }
@@ -239,20 +241,18 @@ void mainMenu() {
  */
 
 int main(int argc, char *argv[]) {
-
     if (argc == 2) {
         printf("%s", argv[1]);
         url = argv[1];
         openurl();
     } else if (argc == 1) {
-
-        /* for good imput */
+        /* For Good Input */
         tcgetattr(STDIN_FILENO, &old_tio);
         new_tio = old_tio;
         new_tio.c_lflag &= (~ICANON & ~ECHO);
         tcsetattr(STDIN_FILENO, TCSANOW, &new_tio);
 
-        /* Pritf Logo*/
+        /* Printf Logo*/
         printf(" ██████╗ ██████╗ ███████╗███╗   ██╗   ███████╗██╗  ██╗\n"
                "██╔═══██╗██╔══██╗██╔════╝████╗  ██║   ██╔════╝██║  ██║\n"
                "██║   ██║██████╔╝█████╗  ██╔██╗ ██║   ███████╗███████║\n"
@@ -263,7 +263,7 @@ int main(int argc, char *argv[]) {
         mainMenu();
 
         /* END */
-        tcsetattr(STDIN_FILENO, TCSANOW, &old_tio); /* restore former settings */
+        tcsetattr(STDIN_FILENO, TCSANOW, &old_tio); /* Restore Former Settings */
         return 0;
 
     }

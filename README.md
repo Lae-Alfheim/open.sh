@@ -18,6 +18,7 @@ _Need root privileges for moving the executable to /usr/bin/ directory._
 Needed Dependencys
 ------------------
 
+- [gcc](https://gcc.gnu.org/) _for compilation_
 - [xdotool](https://github.com/jordansissel/xdotool) _for browsers_
 
 Optional Dependences

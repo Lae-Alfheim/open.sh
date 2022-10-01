@@ -34,14 +34,7 @@ _most of the above I want to be down here_
 Todo
 ====
 
-- ~~phase out open.sh~~
-- ~~add makefile~~
-- ~~add readme how to use program~~
 - add support
-    * ~~other browser like firefox, librewolf, brave, lynx, links, etc... Including detecting witch is installed~~
-    * ~~"log" text editors, vim, vi, ed, ETC~~
-    * ~~media viewer mpv, vlc, (idk), etc...~~ : open.c
-    * ~~Add availability for both gnu and openbsd netcat~~ : removing the middle man
     * Wayland
     * Multiple ip and ip selection
     * some encryption for transmission of urls
@@ -49,17 +42,24 @@ Todo
     * Automatic loging in?
     * Support for media, Cage WM?
     * add copy to clip board as alternative to opening browser or video
-- ~~add a main window, for better control~~
-- ~~add a config.h~~
+    * ~~other browser like firefox, librewolf, brave, lynx, links, etc... Including detecting witch is installed~~
+    * ~~"log" text editors, vim, vi, ed, ETC~~
+    * ~~media viewer mpv, vlc, (idk), etc...~~ : open.c
+    * ~~Add availability for both gnu and openbsd netcat~~ : removing the middle man
 - find a way to use other terminals kitty, alacritty, ETC : scroll stops working
-- ~~client in c~~
 - server in c
-- ~~transmit server.sh to a /tmp folder~~
-- ~~proxychains better support and easy off switch~~
 - Multipal newsboat urls
 - proxychains better support and easy off switch in c
 - option to start and login through ftp
-- summary of updates, would then give you a summary then two options, update or do not update 
+- summary of updates, would then give you a summary then two options, update or do not update
+- __~~phase out open.sh~~__
+- __~~add makefile~~__
+- __~~add readme how to use program~~__
+- __~~proxychains better support and easy off switch~~__
+- __~~transmit server.sh to a /tmp folder~~__
+- __~~client in c~~__
+- __~~add a main window, for better control~~__
+- __~~add a config.h~~ __
 
 
 # __For developers__

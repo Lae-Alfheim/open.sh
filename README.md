@@ -1,7 +1,7 @@
 __OPEN.SH__
 ===========
 
-![Open.sh](img/OpenCServerShow.png "Open.sh")
+![Open.sh](./.img/OpenCServerShow.png)
 
 __An add-on script for newsboat, with cross computer URL sharing.
 That proxy's through Tor.__

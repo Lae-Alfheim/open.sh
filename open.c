@@ -113,28 +113,6 @@ int music(boolean play) {
     return play;
 }
 /* }}}*/
-/* Print Client Menu {{{ */
-//void printClientMenu(register unsigned int select) {
-//    register unsigned int e = 1;
-//    printf("\n\n");
-//    for (e=1; e<=CLIENTMAX; e++) {
-//        printf("%*c",WIDTH,WIDTH);
-//        if (select == e) {
-//            printf("\033[1;37m>");
-//        }
-//        if (e == 1) { /* space to remove extras*/
-//            printf("VIDEO");
-//        } else if (e == 2) {
-//            printf("MUSIC");
-//        } else if (e == 3) {
-//            printf("BROWSER");
-//        } else if (e == 4) {
-//            printf("QUIT");
-//        } else {}
-//        printf("\033[0;0m%*c\n",CLEAR,CLEAR);
-//    }
-//}
-/* }}} */
 /* callServer {{{*/
 void callServer() {
     int sockD = socket(AF_INET, SOCK_STREAM, 0);

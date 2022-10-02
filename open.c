@@ -96,6 +96,16 @@ int music(boolean play) {
 }
 /* }}}*/
 /* Print Client Menu {{{ */
+int printMenu(char *names[], int number, int selection) {
+    register int i = 1;
+    for (i=1; i<number; i++) {
+        if (i == selection) {
+            printf("\033[1;37m>%s", names[i]);
+        } else {
+            printf("%s", names[i]);
+        }
+    }
+}
 void printClientMenu(register unsigned int select) {
     register unsigned int e = 1;
     printf("\n");
@@ -238,7 +248,7 @@ void mainMenu() {
         }
         else if (input == 0) {
             printf("\n");
-            exit(0);
+            quit();
         } else if (input == 10) {
             if (select == 1) {
                 system(NEWSBOAT);
@@ -255,7 +265,7 @@ void mainMenu() {
                 client();
             } else {
                 printf("\n");
-                exit(0);
+                quit();
             }
         } else {} /* Just in case implement later, stops a bug */
         usleep(25000);

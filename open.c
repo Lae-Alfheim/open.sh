@@ -224,8 +224,10 @@ void printmenu(register unsigned int select) {
 void afterPartRun() { printf("\x1b[7A"); /* #=menu options+2 for overflow*/ }
 void mainMenu() {
     register unsigned int select = 0;
-    printmenu(select);
+    char names[SERVERMAX][128] = {"OPEN", "URL", "LOG", "CLIENT", "QUIT"};
+    printf("\n\n\n\n\n\n\n");
     do {
+        printMenu(names, SERVERMAX, select);
         int input = getinput();
         if (input == 1 && select > 1) { select--; }
         else if (input == 2) {
@@ -255,8 +257,6 @@ void mainMenu() {
             }
         } else {} /* Just in case implement later, stops a bug */
         usleep(25000);
-        printf("\x1b[%dA", SERVERMAX+2); /* #=menu options+2 for overflow*/
-        printmenu(select);
     } while (select != 0);
 }
 

@@ -18,8 +18,6 @@
 #include "config.h"
 
 
-
-
 /* Global Variables {{{ */
 #define QUIT    0
 #define UP      1
@@ -28,6 +26,7 @@
 #define LEFT    4
 #define EXIT    6
 #define ENTER   10
+#define CLIENTMAX 4
 
 /* Boolean variable type */
 typedef enum { F, T } boolean;
@@ -79,14 +78,20 @@ int getinput() {
 /* }}} */
 /* Print Menu {{{ */
 void printMenu(char names[][128], int number, int selection) {
+    printf("\x1b[%dA", number + 2); /* MOVE BACK UP */
+
     register int i = 1;
+    printf("\n");
     for (i=0; i<number; i++) {
+        printf("%*c",WIDTH,WIDTH); /* The begining Width Menu */
         if (i == selection - 1) {
             printf("\033[1;37m>");
         }
-            printf("%s", names[i]);
-        printf("\n");
+            printf("%s\033[0;0m", names[i]);
+            printf("\033[0;0m%*c\n",CLEAR,CLEAR); /* clearing after print */
     }
+    printf("\033[0;0m%*c\n",CLEAR,CLEAR); /* clearing after print */
+
         //char string[3][128] = {"FIRST", "SECOND", "THIRD"};
         //printMenu(string, 3, 1);
 }
@@ -94,42 +99,41 @@ void printMenu(char names[][128], int number, int selection) {
 
 /* Client {{{ */
 
-#define CLIENTMAX 4
 /* Music {{{ */
 int music(boolean play) {
     if(play == T) {
         system(MUSIC);
         play = F;
-        printf("Playing Music");
+        printf("Playing Music :: ON ");
     } else {
         system(MUSICSTOP);
         play = T;
-        printf("Killed Music");
+        printf("Killed Music :: OFF ");
     }
     return play;
 }
 /* }}}*/
 /* Print Client Menu {{{ */
-void printClientMenu(register unsigned int select) {
-    register unsigned int e = 1;
-    printf("\n");
-    for (e=1; e<=CLIENTMAX; e++) {
-        printf("%*c",WIDTH,WIDTH);
-        if (select == e) {
-            printf("\033[1;37m>");
-        }
-        if (e == 1) { /* space to remove extras*/
-            printf("VIDEO");
-        } else if (e == 2) {
-            printf("MUSIC");
-        } else if (e == 3) {
-            printf("BROWSER");
-        } else if (e == 4) {
-            printf("QUIT");
-        } else {}
-        printf("\033[0;0m%*c\n",CLEAR,CLEAR);
-    }
-}
+//void printClientMenu(register unsigned int select) {
+//    register unsigned int e = 1;
+//    printf("\n\n");
+//    for (e=1; e<=CLIENTMAX; e++) {
+//        printf("%*c",WIDTH,WIDTH);
+//        if (select == e) {
+//            printf("\033[1;37m>");
+//        }
+//        if (e == 1) { /* space to remove extras*/
+//            printf("VIDEO");
+//        } else if (e == 2) {
+//            printf("MUSIC");
+//        } else if (e == 3) {
+//            printf("BROWSER");
+//        } else if (e == 4) {
+//            printf("QUIT");
+//        } else {}
+//        printf("\033[0;0m%*c\n",CLEAR,CLEAR);
+//    }
+//}
 /* }}} */
 /* callServer {{{*/
 void callServer() {
@@ -156,10 +160,12 @@ void callServer() {
 /* Control Client Menu {{{ */
 void clientMenuControl() {
     usleep(25000); /* 25 milliseconds */
+    char names[CLIENTMAX][128] = {"VIDEO", "MUSIC", "BROWSER", "QUIT"};
     unsigned int select = 0;
     boolean playMusic = T;
-    printClientMenu(select);
+    printf("\n\n\n\n\n\n\n");
     do {
+        printMenu(names, CLIENTMAX, select);
         int input = getinput();
         if (input == 1 && select > 1) { select--; }
         else if (input == 2) {
@@ -180,9 +186,7 @@ void clientMenuControl() {
                 quit();
             }
         } else {} /* Just in case implement later, stops a bug */
-        printf("\x1b[%dA", CLIENTMAX + 1);
         usleep(25000); /* 25 milliseconds */
-        printClientMenu(select);
     } while (1);
 }
 /* }}} */
@@ -298,15 +302,16 @@ int main(int argc, char *argv[]) {
         new_tio.c_lflag &= (~ICANON & ~ECHO);
         tcsetattr(STDIN_FILENO, TCSANOW, &new_tio);
 
-        ///* Printf Logo*/
-        //printf(" ██████╗ ██████╗ ███████╗███╗   ██╗   ███████╗██╗  ██╗\n"
-        //       "██╔═══██╗██╔══██╗██╔════╝████╗  ██║   ██╔════╝██║  ██║\n"
-        //       "██║   ██║██████╔╝█████╗  ██╔██╗ ██║   ███████╗███████║\n"
-        //       "██║   ██║██╔═══╝ ██╔══╝  ██║╚██╗██║   ╚════██║██╔══██║\n"
-        //       "╚██████╔╝██║     ███████╗██║ ╚████║██╗███████║██║  ██║\n"
-        //       " ╚═════╝ ╚═╝     ╚══════╝╚═╝  ╚═══╝╚═╝╚══════╝╚═╝  ╚═╝\n");
 
-        //mainMenu();
+        /* Printf Logo*/
+        printf(" ██████╗ ██████╗ ███████╗███╗   ██╗   ███████╗██╗  ██╗\n"
+               "██╔═══██╗██╔══██╗██╔════╝████╗  ██║   ██╔════╝██║  ██║\n"
+               "██║   ██║██████╔╝█████╗  ██╔██╗ ██║   ███████╗███████║\n"
+               "██║   ██║██╔═══╝ ██╔══╝  ██║╚██╗██║   ╚════██║██╔══██║\n"
+               "╚██████╔╝██║     ███████╗██║ ╚████║██╗███████║██║  ██║\n"
+               " ╚═════╝ ╚═╝     ╚══════╝╚═╝  ╚═══╝╚═╝╚══════╝╚═╝  ╚═╝\n");
+
+        mainMenu();
 
         /* END */
         quit();

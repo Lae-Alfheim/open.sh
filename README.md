@@ -1,6 +1,8 @@
 __OPEN.SH__
 ===========
 
+__AUTOMATIC URL TYPING IS BROKEN_A__
+
 ![Open.sh](./.img/OpenCServerShow.png)
 
 __An add-on script for newsboat, with cross computer URL sharing.

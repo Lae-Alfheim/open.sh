@@ -194,32 +194,7 @@ void openurl() {
     system("xdotool key --clearmodifiers Return");
 }
 /* }}} */
-/* Print Menu {{{ */
-void printmenu(register unsigned int select) {
-    register unsigned int e = 1;
-    printf("\n");
-    for (e=1; e<=5; e++) {
-        printf("%*c",WIDTH,WIDTH);
-        if (select == e) {
-            printf("\033[1;37m>");
-        }
-        if (e == 1) { /* space to remove extras*/
-            printf("OPEN");
-        } else if (e == 2) {
-            printf("URL");
-        } else if (e == 3) {
-            printf("LOG");
-        } else if (e == 4) {
-            printf("CLIENT");
-        } else if (e == 5) {
-            printf("QUIT");
-        } else {}
-        printf("\033[0;0m%*c\n",CLEAR,CLEAR);
-    }
-    /* if ( there is an error) {} */
-    printf(":: \n:: ");
-}
-/* }}} */
+/* Print Meznu {{{ */
 /* Menu {{{ */
 void mainMenu() {
     register unsigned int select = 0;

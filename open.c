@@ -221,7 +221,6 @@ void printmenu(register unsigned int select) {
 }
 /* }}} */
 /* Menu {{{ */
-void afterPartRun() { printf("\x1b[7A"); /* #=menu options+2 for overflow*/ }
 void mainMenu() {
     register unsigned int select = 0;
     char names[SERVERMAX][128] = {"OPEN", "URL", "LOG", "CLIENT", "QUIT"};

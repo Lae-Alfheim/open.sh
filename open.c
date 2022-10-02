@@ -77,6 +77,20 @@ int getinput() {
     return value;
 }
 /* }}} */
+/* Print Menu {{{ */
+void printMenu(char names[][128], int number, int selection) {
+    register int i = 1;
+    for (i=0; i<number; i++) {
+        if (i == selection - 1) {
+            printf("\033[1;37m>");
+        }
+            printf("%s", names[i]);
+        printf("\n");
+    }
+        //char string[3][128] = {"FIRST", "SECOND", "THIRD"};
+        //printMenu(string, 3, 1);
+}
+/* }}} */
 
 /* Client {{{ */
 
@@ -96,16 +110,6 @@ int music(boolean play) {
 }
 /* }}}*/
 /* Print Client Menu {{{ */
-int printMenu(char *names[], int number, int selection) {
-    register int i = 1;
-    for (i=1; i<number; i++) {
-        if (i == selection) {
-            printf("\033[1;37m>%s", names[i]);
-        } else {
-            printf("%s", names[i]);
-        }
-    }
-}
 void printClientMenu(register unsigned int select) {
     register unsigned int e = 1;
     printf("\n");
@@ -294,15 +298,15 @@ int main(int argc, char *argv[]) {
         new_tio.c_lflag &= (~ICANON & ~ECHO);
         tcsetattr(STDIN_FILENO, TCSANOW, &new_tio);
 
-        /* Printf Logo*/
-        printf(" ██████╗ ██████╗ ███████╗███╗   ██╗   ███████╗██╗  ██╗\n"
-               "██╔═══██╗██╔══██╗██╔════╝████╗  ██║   ██╔════╝██║  ██║\n"
-               "██║   ██║██████╔╝█████╗  ██╔██╗ ██║   ███████╗███████║\n"
-               "██║   ██║██╔═══╝ ██╔══╝  ██║╚██╗██║   ╚════██║██╔══██║\n"
-               "╚██████╔╝██║     ███████╗██║ ╚████║██╗███████║██║  ██║\n"
-               " ╚═════╝ ╚═╝     ╚══════╝╚═╝  ╚═══╝╚═╝╚══════╝╚═╝  ╚═╝\n");
+        ///* Printf Logo*/
+        //printf(" ██████╗ ██████╗ ███████╗███╗   ██╗   ███████╗██╗  ██╗\n"
+        //       "██╔═══██╗██╔══██╗██╔════╝████╗  ██║   ██╔════╝██║  ██║\n"
+        //       "██║   ██║██████╔╝█████╗  ██╔██╗ ██║   ███████╗███████║\n"
+        //       "██║   ██║██╔═══╝ ██╔══╝  ██║╚██╗██║   ╚════██║██╔══██║\n"
+        //       "╚██████╔╝██║     ███████╗██║ ╚████║██╗███████║██║  ██║\n"
+        //       " ╚═════╝ ╚═╝     ╚══════╝╚═╝  ╚═══╝╚═╝╚══════╝╚═╝  ╚═╝\n");
 
-        mainMenu();
+        //mainMenu();
 
         /* END */
         quit();

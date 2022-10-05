@@ -244,7 +244,7 @@ void mainMenu() {
 
 int main(int argc, char *argv[]) {
     if (argc == 2) {
-        if (runServer == 1) {
+        if (runServer == 0) {
             printf("Server Not Working At momeent\nChange in config.h");
         } else {
             printf("%s", argv[1]);

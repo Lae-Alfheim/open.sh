@@ -32,6 +32,7 @@
 typedef enum { F, T } boolean;
 
 /* Some are defined in config.h*/
+const unsigned runServer = 1;
 struct termios old_tio, new_tio; /* for termios */
 char *url;
 char urlout[sizeof(url)+14];
@@ -243,12 +244,13 @@ void mainMenu() {
 
 int main(int argc, char *argv[]) {
     if (argc == 2) {
-        if (runServer == T) {
+        if (runServer == 1) {
             printf("Server Not Working At momeent\nChange in config.h");
-        }
+        } else {
             printf("%s", argv[1]);
             url = argv[1];
             openurl();
+        }
     } else if (argc == 1) {
         /* For Good Input */
         tcgetattr(STDIN_FILENO, &old_tio);

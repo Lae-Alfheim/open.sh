@@ -64,7 +64,7 @@ Todo
 - __~~transmit server.sh to a /tmp folder~~__
 - __~~client in c~~__
 - __~~add a main window, for better control~~__
-- __~~add a config.h~~ __
+- __~~add a config.h~~__
 
 
 # __For developers__

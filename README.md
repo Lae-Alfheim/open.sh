@@ -55,6 +55,8 @@ Todo
 - proxychains better support and easy off switch in c
 - option to start and login through ftp
 - summary of updates, would then give you a summary then two options, update or do not update
+- version auto update notify.
+- shrink photo for faster loading
 - __~~phase out open.sh~~__
 - __~~add makefile~~__
 - __~~add readme how to use program~~__

@@ -194,7 +194,6 @@ void openurl() {
     system("xdotool key --clearmodifiers Return");
 }
 /* }}} */
-/* Print Meznu {{{ */
 /* Menu {{{ */
 void mainMenu() {
     register unsigned int select = 0;
@@ -236,7 +235,7 @@ void mainMenu() {
 
 /* }}} */
 /* }}} */
-
+/* }}} */
 
 /*
  * MAIN
@@ -244,9 +243,12 @@ void mainMenu() {
 
 int main(int argc, char *argv[]) {
     if (argc == 2) {
-        printf("%s", argv[1]);
-        url = argv[1];
-        openurl();
+        if (runServer == T) {
+            printf("Server Not Working At momeent\nChange in config.h");
+        }
+            printf("%s", argv[1]);
+            url = argv[1];
+            openurl();
     } else if (argc == 1) {
         /* For Good Input */
         tcgetattr(STDIN_FILENO, &old_tio);

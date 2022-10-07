@@ -32,7 +32,6 @@ _most of the above I want to be down here_
 - [Proxychains](https://github.com/haad/proxychains) or
 - [Proxychains-ng](https://github.com/rofl0r/proxychains-ng)
 - [mpv](https://mpv.io/)
-- [openbsd-netcat](https://salsa.debian.org/debian/netcat-openbsd)
 
 Todo
 ====
@@ -56,7 +55,8 @@ Todo
 - option to start and login through ftp
 - summary of updates, would then give you a summary then two options, update or do not update
 - version auto update notify.
-- shrink photo for faster loading
+- shrink photo for faster loading of readme
+- add clock to client and server
 - __~~phase out open.sh~~__
 - __~~add makefile~~__
 - __~~add readme how to use program~~__

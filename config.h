@@ -3,6 +3,7 @@
 /* {{{ */
 
 
+const unsigned int SERVER = 1;
 const unsigned int WIDTH=16; /* How Many Spaces Till Menu */
 const unsigned int CLEAR=8; /* How Many Spaces After Menu */
 const char *DEFAULTURL = "api.invidious.io"; /* Default */
